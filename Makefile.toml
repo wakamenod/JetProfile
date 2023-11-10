@@ -1,0 +1,23 @@
+[config]
+skip_core_tasks = true
+
+[tasks.test]
+script = '''
+echo test is not configured yet
+'''
+
+[tasks.lint]
+script = '''
+./gradlew detekt
+'''
+
+[tasks.run]
+script = '''
+./gradlew installDebug
+adb shell am start -n com.example.jetprofile/.MainActivity
+'''
+
+[tasks.clean]
+script = '''
+./gradlew clean
+'''

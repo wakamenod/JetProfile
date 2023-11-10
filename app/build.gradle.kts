@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("io.gitlab.arturbosch.detekt").version("1.23.3")
 }
 
 android {
@@ -47,6 +48,8 @@ android {
 }
 
 dependencies {
+    // implementation(kotlin("test"))
+    // implementation(kotlin("test-junit"))
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
@@ -63,4 +66,9 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.3")
+}
+
+detekt {
+    autoCorrect = true
 }
